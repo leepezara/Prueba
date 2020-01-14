@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase.js"></script>
+</head>
+<body>
+<p style="font-size: 40px;">Modelo Actual de Estufas</p>
+<p id="modeloact" style="font-size: 40px;"></p>
+</body>
+<script type="text/javascript">
+	var firebaseConfig = {
+    apiKey: "AIzaSyDF1UAgvc5j_dMXuVf7zpHBWzjXGPq6_oQ",
+    authDomain: "borradormater3.firebaseapp.com",
+    databaseURL: "https://borradormater3.firebaseio.com",
+    projectId: "borradormater3",
+    storageBucket: "borradormater3.appspot.com",
+    messagingSenderId: "109450160265",
+    appId: "1:109450160265:web:16a307c3adfe7a55fd3e58"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+var modeloact = document.getElementById('modeloact');
+var dbRefmodelo = firebase.database().ref().child('ModeloAct/Modelo');
+dbRefmodelo.on('value',snap => modeloact.innerText = snap.val() );
+</script>
+</html>
